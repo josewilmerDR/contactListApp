@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-//import { Home } from "./pages/home";
+import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -10,8 +10,10 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
-import Contactos from "./pages/contacts.jsx";
 import AddContact from "./pages/addContact.jsx";
+import ContactList from "./pages/contacts.jsx";
+import EditContact from "./pages/edictContact.jsx";
+import ContactCard from "./component/contactCard.jsx";
 
 //create your first component
 const Layout = () => {
@@ -23,9 +25,9 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
-            <Route element={<Contactos />} path="/" />
+            <Route element={<ContactList />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<AddContact />} path="/add-contact" />
             <Route
@@ -34,8 +36,9 @@ const Layout = () => {
             />
             <Route element={<Single />} path="/single/:thetitle" />
             <Route element={<h1>Not found! 404</h1>} path="*" />
+            <Route element={<EditContact />} path="/edit-contact/:theindex" />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </ScrollToTop>
       </BrowserRouter>
     </div>
